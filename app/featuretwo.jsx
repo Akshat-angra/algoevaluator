@@ -1,4 +1,10 @@
 import { Bot, Code2, LineChart, Users, Zap } from "lucide-react";
+import { Amaranth } from "next/font/google";
+
+const amaranth = Amaranth({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+});
 
 function Featurestwo() {
   return (
@@ -8,7 +14,7 @@ function Featurestwo() {
       <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/10 via-transparent to-purple-500/10" />
 
       <span
-        className="absolute top-0 left-0 text-[12vw] sm:text-[10vw] md:text-[8vw] lg:text-[6vw] font-bold z-10 pl-7 select-none opacity-50"
+        className={`absolute top-0 left-0 text-[12vw] sm:text-[10vw] md:text-[8vw] lg:text-[6vw] font-bold z-10 pl-7 select-none opacity-50 ${amaranth.className}`}
         style={{
           WebkitTextStroke: "1px #5DE2E7",
         }}

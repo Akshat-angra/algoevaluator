@@ -178,3 +178,7 @@ body {
     --ring: 0 0% 83.1%;
   }
 }
+
+.toast-custom {
+  font-family: 'Poppins', sans-serif !important;
+}

@@ -1,11 +1,17 @@
 import { Bot, Code2, Sparkles } from "lucide-react";
+import { Amaranth } from "next/font/google";
+
+const amaranth = Amaranth({
+    subsets: ["latin"],
+    weight: ["400", "700"],
+});
 
 function Features() {
     return (
         <div className="relative min-h-screen w-full bg-gradient-to-b from-neutral-950 to-neutral-950 overflow-hidden">
             <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]" />
             <span
-                className="absolute top-0 left-0 text-[12vw] sm:text-[10vw] md:text-[8vw] lg:text-[6vw] text-transparent font-bold z-10 pl-7 shadow-lg"
+                className={`absolute top-0 left-0 text-[12vw] sm:text-[10vw] md:text-[8vw] lg:text-[6vw] text-transparent font-bold z-10 pl-7 shadow-lg ${amaranth.className}`}
                 style={{
                     WebkitTextStroke: "1px #ADD8E6",
                 }}

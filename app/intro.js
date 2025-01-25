@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Code2, Users, Zap, Sparkles } from "lucide-react";
 import { CodePreview } from "./code-preview";
+import { toast, ToastContainer } from "react-toastify";
 
 const fadeIn = {
   initial: { opacity: 0, y: 20 },
@@ -67,6 +68,17 @@ export function Intro() {
               size="lg"
               variant="outline"
               className="text-blue-300 border-neutral-700 border-blue-300"
+              onClick={() =>
+                toast.error(
+                  "Functionality not available at the moment. check back later!",
+                  {
+                    position: "bottom-right",
+                    autoClose: 3000,
+                    draggable: true,
+                    className: "bg-red-100 text-red-700 toast-custom",
+                  }
+                )
+              }
             >
               Schedule Demo
             </Button>
@@ -115,6 +127,7 @@ export function Intro() {
           </motion.div>
         </motion.div>
       </div>
+      <ToastContainer />
     </div>
   );
 }

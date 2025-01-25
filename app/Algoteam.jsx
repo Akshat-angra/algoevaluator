@@ -12,29 +12,21 @@ const teamMembers = [
         name: "Anandita Mahajan",
         role: "CTO",
         bio: "AI expert specializing in machine learning and recruitment algorithms.",
-        image: "null",
+        image: "https://eccelleroit.com/assets/images/process/develop.png",
     },
     {
         name: "Akshat Angra",
         role: "Lead Developer",
         bio: "Full-stack wizard with a passion for elegant code solutions.",
-        image: "null",
+        image: "https://static.vecteezy.com/system/resources/previews/011/153/368/original/3d-website-developer-working-on-laptop-illustration-png.png",
     },
 ];
 
 function Algoteam() {
     return (
-        <div className="min-h-screen bg-gradient-to-b from-neutral-950 via-neutral-950 to-neutral-900 overflow-hidden relative overflow-hidden">
+        <div className="min-h-screen bg-gradient-to-b from-neutral-950 via-neutral-950 to-neutral-950 overflow-hidden relative overflow-hidden">
             <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]" />
-            {/* Animated background gradients */}
-            <div className="absolute inset-0 overflow-hidden">
-                <div className="absolute -inset-[10px] opacity-50">
-                    <div className="absolute top-0 -left-40 w-96 h-96 bg-purple-600 rounded-full mix-blend-multiply filter blur-3xl animate-blob"></div>
-                    <div className="absolute top-0 -right-40 w-96 h-96 bg-green-500 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-2000"></div>
-                    <div className="absolute -bottom-32 left-20 w-96 h-96 bg-pink-600 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-4000"></div>
-                </div>
-            </div>
-
+    
             <div className="relative">
                 <div className="container mx-auto px-4 py-24">
                     <div className="text-center mb-20">

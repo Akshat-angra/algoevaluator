@@ -12,6 +12,13 @@ import {
   Maximize2,
   Play,
 } from "lucide-react";
+import { toast, ToastContainer } from "react-toastify";
+import { Amaranth } from "next/font/google";
+
+const amaranth = Amaranth({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+});
 
 const CodeEditorMock = () => (
   <div className="w-full rounded-xl overflow-hidden shadow-2xl">
@@ -71,11 +78,19 @@ const About = () => {
     setRandomPositions(positions);
   }, []);
 
+  const handleDemoClick = () => {
+    toast.info("Demo is not available at the moment. We're working on it!", {
+      position: "bottom-right",
+      className: "bg-blue-100 text-blue-700 toast-custom",
+    });
+  };
+
   return (
     <div className="relative w-full bg-black overflow-hidden">
+      <ToastContainer />
       <section className="relative min-h-screen w-full bg-gradient-to-b from-gray-900 via-black to-black">
         <span
-          className="absolute top-0 left-0 text-[12vw] sm:text-[10vw] md:text-[8vw] lg:text-[6vw] text-transparent font-bold z-10 pl-7 shadow-lg"
+          className={`absolute top-0 left-0 text-[12vw] sm:text-[10vw] md:text-[8vw] lg:text-[6vw] text-transparent font-bold z-10 pl-7 shadow-lg ${amaranth.className}`}
           style={{
             WebkitTextStroke: "1px #904bfa",
           }}
@@ -116,7 +131,10 @@ const About = () => {
                 <button className="px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg text-white font-semibold hover:from-blue-500 hover:to-purple-500 transition-all duration-300 flex items-center gap-2">
                   Try Now <ArrowRight className="w-5 h-5" />
                 </button>
-                <button className="px-8 py-3 border border-gray-700 rounded-lg text-white font-semibold hover:bg-gray-800 transition-all duration-300">
+                <button
+                  className="px-8 py-3 border border-gray-700 rounded-lg text-white font-semibold hover:bg-gray-800 transition-all duration-300"
+                  onClick={handleDemoClick}
+                >
                   Watch Demo
                 </button>
               </div>
@@ -200,7 +218,10 @@ const About = () => {
                 Watch how AlgoHire transforms the interview process with
                 AI-powered insights and real-time analysis.
               </p>
-              <button className="px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg text-white font-semibold hover:from-blue-500 hover:to-purple-500 transition-all duration-300 flex items-center gap-2">
+              <button
+                className="px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg text-white font-semibold hover:from-blue-500 hover:to-purple-500 transition-all duration-300 flex items-center gap-2"
+                onClick={handleDemoClick}
+              >
                 <Play className="w-5 h-5" /> Watch Demo
               </button>
             </div>
