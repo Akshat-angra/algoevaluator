@@ -1,4 +1,5 @@
 "use client";
+import { Quicksand } from "next/font/google";
 import { useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -44,6 +45,12 @@ const routes = [
   },
 ];
 
+
+const quick = Quicksand({
+  subsets: ["latin"],
+  weight: ["500", "700"],
+});
+
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [showNotification, setShowNotification] = useState(true);
@@ -52,7 +59,7 @@ export function Navbar() {
   return (
     <>
       {showNotification && (
-        <div className="flex justify-between items-center bg-blue-300 text-black text-center p-1 rounded-lg">
+        <div className="flex justify-between items-center bg-blue-300 text-black text-center p-1">
           <span className="flex-1 text-center">
             We're still cooking our service. Sorry for any inconvenience.
           </span>
@@ -68,8 +75,11 @@ export function Navbar() {
         <div className="flex h-16 items-center justify-between px-20 w-full">
           <Link href="/" className="flex items-center gap-2">
             <Code2 className="h-8 w-8 text-blue-400" />
-            <span className="text-xl font-bold tracking-tight text-white">
-              Algo<span className="text-blue-400">Hire</span>
+            <span className={`text-xl font-bold tracking-tight text-white ${quick.className}`}>
+              Algo<span className="text-blue-400">Evaluator</span>
+              <span className="text-xs absolute border-blue-300 text-white border-2 ml-1 px-2 py-0.5 rounded-lg">
+                Beta
+              </span>
             </span>
           </Link>
           <div className="hidden md:flex flex-1 justify-between items-center px-20">

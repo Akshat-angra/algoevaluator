@@ -72,7 +72,7 @@ export function Intro() {
                 toast.error(
                   "Functionality not available at the moment. check back later!",
                   {
-                    position: "bottom-right",
+                    position: "top-center",
                     autoClose: 3000,
                     draggable: true,
                     className: "bg-red-100 text-red-700 toast-custom",

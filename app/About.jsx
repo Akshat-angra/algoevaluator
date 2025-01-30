@@ -80,8 +80,9 @@ const About = () => {
 
   const handleDemoClick = () => {
     toast.info("Demo is not available at the moment. We're working on it!", {
-      position: "bottom-right",
+      position: "top-center",
       className: "bg-blue-100 text-blue-700 toast-custom",
+      autoClose: 3000,
     });
   };
 
