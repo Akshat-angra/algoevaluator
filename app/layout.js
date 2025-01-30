@@ -9,10 +9,9 @@ const poppins = Poppins({
 });
 
 export const metadata = {
-    title: "AlgoHire",
+    title: "AlgoEvaluator",
     description: "Ai Powered Interviews",
 };
-
 export default function RootLayout({ children }) {
     return (
         <ClerkProvider>
