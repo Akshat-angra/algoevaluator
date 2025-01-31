@@ -9,3 +9,8 @@ export const Users = pgTable("users", {
     subscription: boolean("subscription").default(false),
     isRecruiter: boolean("isRecruiter").default(false),
 });
+
+
+export const practiceQuestions = pgTable("practiceQuestions",{
+        
+});

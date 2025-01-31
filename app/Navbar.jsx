@@ -1,9 +1,9 @@
 "use client";
-import {Quicksand} from "next/font/google";
-import {useState, useEffect} from "react";
+import { Quicksand } from "next/font/google";
+import { useState, useEffect } from "react";
 import Link from "next/link";
-import {Button} from "@/components/ui/button";
-import {Sheet, SheetContent, SheetTrigger} from "@/components/ui/sheet";
+import { Button } from "@/components/ui/button";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import {
     Menu,
     Code2,
@@ -16,9 +16,9 @@ import {
     CircleX,
     ArrowUp,
 } from "lucide-react";
-import {cn} from "@/lib/utils";
+import { cn } from "@/lib/utils";
 import * as Dialog from "@radix-ui/react-dialog";
-import {useUser, UserButton} from "@clerk/clerk-react";
+import { useUser, UserButton } from "@clerk/clerk-react";
 
 const quick = Quicksand({
     subsets: ["latin"],
@@ -56,7 +56,7 @@ const routes = [
 export function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
     const [showNotification, setShowNotification] = useState(true);
-    const {isLoaded, user} = useUser();
+    const { isLoaded, user } = useUser();
     const [showScrollTop, setShowScrollTop] = useState(false);
 
     useEffect(() => {
@@ -69,37 +69,37 @@ export function Navbar() {
     }, []);
 
     const scrollToTop = () => {
-        window.scrollTo({top: 0, behavior: "smooth"});
+        window.scrollTo({ top: 0, behavior: "smooth" });
     };
 
     return (
         <>
             {showNotification && (
                 <div className="flex justify-between items-center bg-blue-300 text-black text-center p-1">
-          <span className={`flex-1 text-center}`}>
-            We're still cooking our service. Sorry for any inconvenience.
-          </span>
+                    <span className={`flex-1 text-center}`}>
+                        We're still cooking our service. Sorry for any inconvenience.
+                    </span>
                     <button
                         className="text-black"
                         onClick={() => setShowNotification(false)}
                     >
-                        <CircleX size={22}/>
+                        <CircleX size={22} />
                     </button>
                 </div>
             )}
             <nav className="w-full bg-[#0a0a0a] backdrop-blur supports-[backdrop-filter]:bg-black/100 z-10">
                 <div className="flex h-16 items-center justify-between px-20 w-full">
                     <Link href="/" className={`flex items-center gap-2 ${quick.className}`}>
-                        <Code2 className="h-8 w-8 text-blue-400"/>
+                        <Code2 className="h-8 w-8 text-blue-400" />
                         <span className="text-xl font-bold tracking-tight text-white">
-              Algo<span className="text-blue-400">Evaluator</span>{" "}
+                            Algo<span className="text-blue-400">Evaluator</span>{" "}
                             <span
                                 className="text-xs absolute border-none text-white bg-blue-400 border-2 ml-1 px-2 py-0.5 rounded-lg">
-                Beta
-              </span>
-            </span>
+                                Beta
+                            </span>
+                        </span>
                     </Link>
-                    <div className="hidden md:flex flex-1 justify-between items-center px-20">
+                    <div className="hidden md:flex flex-1 justify-between items-center px-20 ml-32">
                         <div className="flex gap-6">
                             {routes.map((route) => (
                                 <Link
@@ -110,7 +110,7 @@ export function Navbar() {
                                         "text-white"
                                     )}
                                 >
-                                    <route.icon className="h-4 w-4"/>
+                                    <route.icon className="h-4 w-4" />
                                     {route.label}
                                 </Link>
                             ))}
@@ -129,7 +129,7 @@ export function Navbar() {
                                             Dashboard
                                         </Link>
                                     </Button>
-                                    <UserButton/>
+                                    <UserButton />
                                 </div>
                             ) : (
                                 <div className="flex gap-4">
@@ -139,7 +139,7 @@ export function Navbar() {
                                         asChild
                                     >
                                         <Link href="/sign-in">
-                                            <LogIn className="mr-2 h-4 w-4 text-blue-500"/>
+                                            <LogIn className="mr-2 h-4 w-4 text-blue-500" />
                                             Login
                                         </Link>
                                     </Button>
@@ -161,7 +161,7 @@ export function Navbar() {
                                     variant="ghost"
                                     className="text-blue-300 hover:text-blue-400 size-icon"
                                 >
-                                    <Menu className="h-6 w-6"/>
+                                    <Menu className="h-6 w-6" />
                                 </Button>
                             </SheetTrigger>
                             <SheetContent
@@ -182,7 +182,7 @@ export function Navbar() {
                                                 "text-gray-300 hover:text-blue-300 p-3 rounded-lg hover:bg-gray-800 shadow-sm"
                                             )}
                                         >
-                                            <route.icon className="h-5 w-5 text-blue-300"/>
+                                            <route.icon className="h-5 w-5 text-blue-300" />
                                             {route.label}
                                         </Link>
                                     ))}
@@ -200,7 +200,7 @@ export function Navbar() {
                                                         Dashboard
                                                     </Link>
                                                 </Button>
-                                                <UserButton/>
+                                                <UserButton />
                                             </div>
                                         ) : (
                                             <div className="flex gap-4">
@@ -210,7 +210,7 @@ export function Navbar() {
                                                     asChild
                                                 >
                                                     <Link href="/sign-in">
-                                                        <LogIn className="mr-2 h-4 w-4 text-blue-500"/>
+                                                        <LogIn className="mr-2 h-4 w-4 text-blue-500" />
                                                         Login
                                                     </Link>
                                                 </Button>
@@ -239,7 +239,7 @@ export function Navbar() {
                         size={24}
                         className="transition-transform group-hover:-translate-y-1"
                     />
-                    <span className="absolute inset-0 rounded-full bg-white opacity-25 group-hover:animate-ping"/>
+                    <span className="absolute inset-0 rounded-full bg-white opacity-25 group-hover:animate-ping" />
                 </button>
             )}
         </>
