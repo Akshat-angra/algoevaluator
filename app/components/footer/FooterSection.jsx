@@ -14,7 +14,7 @@ export function FooterSection() {
                     <div className="lg:col-span-4">
                         <div className="flex items-center space-x-2 mb-4">
                             <Code2 className="w-8 h-8 text-blue-500" />
-                            <h2 className="text-2xl font-bold text-white">AlgoHire</h2>
+                            <h2 className="text-2xl font-bold text-white">AlgoEvaluator</h2>
                         </div>
                         <p className="text-gray-400 mb-6 leading-relaxed">
                             Revolutionizing technical interviews with AI-powered assessments
