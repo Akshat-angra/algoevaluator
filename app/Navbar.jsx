@@ -93,10 +93,10 @@ export function Navbar() {
                         <Code2 className="h-8 w-8 text-blue-400" />
                         <span className="text-xl font-bold tracking-tight text-white">
                             Algo<span className="text-blue-400">Evaluator</span>{" "}
-                            {/* <span
+                            <span
                                 className="text-xs absolute border-none text-white bg-blue-400 border-2 ml-1 px-2 py-0.5 rounded-lg">
                                 Beta
-                            </span> */}
+                            </span>
                         </span>
                     </Link>
                     <div className="hidden md:flex flex-1 justify-between items-center px-20 ml-32">
