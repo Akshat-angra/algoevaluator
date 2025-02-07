@@ -60,7 +60,7 @@ export default function AssessmentsPage() {
                     transition={{ duration: 0.5 }}
                     className="mb-8"
                 >
-                    <h1 className="text-4xl font-bold mb-4 bg-gradient-to-r from-pink-200 to-teal-200 bg-clip-text text-transparent">
+                    <h1 className="text-4xl font-bold mb-4 bg-gradient-to-r from-pink-400 to-purple-500 bg-clip-text text-transparent">
                         Assessments
                     </h1>
                     <p className="text-xl text-gray-300">Challenge yourself and improve your algorithmic skills.</p>
@@ -88,15 +88,11 @@ export default function AssessmentsPage() {
                         title="Service Status"
                         className="border-l-[3px] border-amber-500 bg-neutral-900 text-gray-100 shadow-2xl rounded-xl p-6 relative isolate transition-all hover:shadow-amber-900/30"
                     >
-                        {/* Diagonal accent line */}
                         <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-l from-amber-500/20 to-transparent -z-10 clip-diagonal" />
-
-                        {/* Subtle texture overlay */}
                         <div className="absolute inset-0 bg-noise-pattern opacity-5 -z-20" />
 
                         <div className="space-y-4 relative">
                             <div className="flex items-start gap-3">
-                                {/* Animated icon */}
                                 <div className="shrink-0 animate-pulse">
                                     <AlertTriangle className="h-6 w-6 text-amber-300" />
                                 </div>
