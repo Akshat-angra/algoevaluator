@@ -9,10 +9,19 @@ import {
   Play, RotateCcw, Save, Settings, Terminal, Code2, Copy,
   Download, Share2, Trash2, Clock, ChevronDown, Palette,
   Maximize2, BookOpen, CheckCircle, Sparkles, Brain,
-  BarChart2, Cpu, ShieldCheck, Zap, 
+  BarChart2, Cpu, ShieldCheck, Zap, RocketIcon
 } from 'lucide-react';
 import AIHints from './AIHints';
 import AIMetrics from './AIMetrics';
+import { FooterSection } from '../components/footer/FooterSection';
+import { Card, CardContent } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { Amaranth } from 'next/font/google';
+
+const amaranth = Amaranth({
+  subsets: ['latin'],
+  weight: ['400', '700'],
+})
 
 const EXAMPLES = [
   {
@@ -230,7 +239,7 @@ function Editor() {
       ];
 
       setAIHints(newHints);
-      setOutput(prevOutput => 
+      setOutput(prevOutput =>
         'AI Analysis Complete!\n\n' +
         '✓ Code structure analyzed\n' +
         '✓ Performance metrics calculated\n' +
@@ -247,7 +256,7 @@ function Editor() {
     <div className={`min-h-screen ${theme === 'dark' ? 'bg-gray-950' : 'bg-gray-50'} 
       ${theme === 'dark' ? 'text-gray-100' : 'text-gray-900'} transition-colors duration-200`}>
       <Toaster position="top-right" />
-      
+
       <header className={`${theme === 'dark' ? 'bg-gray-900/95 border-gray-800' : 'bg-white/95 border-gray-200'} 
         border-b sticky top-0 z-50 backdrop-blur-sm`}>
         <div className="container mx-auto px-4 py-4">
@@ -261,7 +270,7 @@ function Editor() {
                 Algo Studio
               </h1>
             </div>
-            
+
             <div className="flex items-center space-x-4">
               <div className="relative">
                 <button
@@ -558,6 +567,8 @@ function Editor() {
           </div>
         </div>
       </main>
+      <hr className="w-[90%] mx-5 md:mx-[80px] border-t border-white/80 m-10 border-purple-600" />
+      <FooterSection />
     </div>
   );
 }
