@@ -181,4 +181,7 @@ body {
 
 .toast-custom {
   font-family: 'Poppins', sans-serif !important;
+  font-size: 12px !important;
+  min-height: 10px;
+  min-width: 40px;
 }
