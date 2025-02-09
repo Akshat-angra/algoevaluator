@@ -188,19 +188,15 @@ body {
   border-radius: 5px;
 }
 
-/* Adjust for smaller screens */
+/* Adjust width for smaller screens */
 @media (max-width: 480px) {
   .toast-custom {
-    font-size: 10px !important;
     min-width: 30px;
-    padding: 6px 10px;
   }
 }
 
 @media (max-width: 320px) {
   .toast-custom {
-    font-size: 9px !important;
     min-width: 25px;
-    padding: 4px 8px;
   }
 }
