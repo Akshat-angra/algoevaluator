@@ -70,7 +70,7 @@ export function Intro() {
               className="text-blue-300 border-neutral-700 border-blue-300"
               onClick={() =>
                 toast.error(
-                  "Functionality not available at the moment. check back later!",
+                  "Sorry, backend is down!",
                   {
                     position: "top-center",
                     autoClose: 3000,
