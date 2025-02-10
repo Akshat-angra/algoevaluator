@@ -79,7 +79,7 @@ const About = () => {
   }, []);
 
   const handleDemoClick = () => {
-  toast.info("Sorry, backend is down!", {
+    toast.info("Sorry, backend is down!", {
       position: "top-center",
       className: "bg-blue-100 text-blue-700 toast-custom",
       autoClose: 3000,
@@ -114,9 +114,8 @@ const About = () => {
         </div>
 
         <div
-          className={`relative z-10 flex items-center justify-center min-h-screen px-6 transition-all duration-1000 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-          }`}
+          className={`relative z-10 flex items-center justify-center min-h-screen px-6 transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+            }`}
         >
           <div className="max-w-7xl w-full grid md:grid-cols-2 gap-12 items-center mt-20">
             <div className="space-y-8">

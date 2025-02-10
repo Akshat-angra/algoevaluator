@@ -1,5 +1,4 @@
 "use client";
-
 import React from "react";
 import { Amaranth, Montserrat } from "next/font/google";
 import { Briefcase, Rocket, Award, TrendingUp } from "lucide-react";

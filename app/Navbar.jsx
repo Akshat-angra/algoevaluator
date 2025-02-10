@@ -13,8 +13,9 @@ import {
     MessageCircle,
     Terminal,
     FileCode,
-    CircleX,
+    X,
     ArrowUp,
+    AlertCircle,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import * as Dialog from "@radix-ui/react-dialog";
@@ -75,15 +76,16 @@ export function Navbar() {
     return (
         <>
             {showNotification && (
-                <div className="flex justify-between items-center bg-blue-300 text-black text-center p-1">
-                    <span className={`flex-1 text-center}`}>
+                <div className="flex justify-between items-center bg-gradient-to-r from-blue-500 to-violet-500 text-white p-1 shadow-lg">
+                    <AlertCircle className="flex-shrink-0" size={20} />
+                    <span className="flex-1 text-center">
                         We're still cooking our service. Sorry for any inconvenience.
                     </span>
                     <button
                         className="text-black"
                         onClick={() => setShowNotification(false)}
                     >
-                        <CircleX size={22} />
+                        <X size={20} className="text-white hover:bg-gray-200/20" />
                     </button>
                 </div>
             )}
