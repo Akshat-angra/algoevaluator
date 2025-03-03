@@ -83,12 +83,18 @@ const About = () => {
       position: "top-center",
       className: "bg-blue-100 text-blue-700 toast-custom",
       autoClose: 3000,
+      closeButton: false,
+      icon: false,
+      draggable: true
     });
   };
 
   return (
     <div className="relative w-full bg-black overflow-hidden">
-      <ToastContainer />
+       <ToastContainer
+              toastClassName="Toastify__toast"
+              bodyClassName="Toastify__toast-body"
+            />
       <section className="relative min-h-screen w-full bg-gradient-to-b from-gray-900 via-black to-black">
         <span
           className={`absolute top-0 left-0 text-[12vw] sm:text-[10vw] md:text-[8vw] lg:text-[6vw] text-transparent font-bold z-10 pl-7 shadow-lg ${amaranth.className}`}

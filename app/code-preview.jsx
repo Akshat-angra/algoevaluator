@@ -11,9 +11,9 @@ export function CodePreview() {
       <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-violet-500/10 blur-3xl" />
       <div className="relative rounded-xl border border-neutral-800 bg-neutral-900/80 backdrop-blur-sm overflow-hidden">
         <div className="flex items-center gap-1.5 px-4 py-2 border-b border-neutral-800">
-          <div className="w-2.5 h-2.5 rounded-full bg-neutral-700" />
-          <div className="w-2.5 h-2.5 rounded-full bg-neutral-700" />
-          <div className="w-2.5 h-2.5 rounded-full bg-neutral-700" />
+        <div className="w-3 h-3 rounded-full bg-red-500"></div>
+          <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+          <div className="w-3 h-3 rounded-full bg-green-500"></div>
         </div>
         <div className="p-4 text-sm font-mono">
           <div className="text-neutral-500">// AI-powered code analysis</div>

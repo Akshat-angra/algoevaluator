@@ -1,6 +1,6 @@
 "use client";
 import { Quicksand } from "next/font/google";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
@@ -17,6 +17,7 @@ import {
 import { cn } from "@/lib/utils";
 import * as Dialog from "@radix-ui/react-dialog";
 import { useUser, UserButton } from "@clerk/nextjs";
+import { motion } from "framer-motion";
 
 const routes = [
   {
@@ -46,7 +47,6 @@ const routes = [
   },
 ];
 
-
 const quick = Quicksand({
   subsets: ["latin"],
   weight: ["500", "700"],
@@ -55,23 +55,43 @@ const quick = Quicksand({
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [showNotification, setShowNotification] = useState(true);
-  const { isSignedIn } = useUser();
+  const [mounted, setMounted] = useState(false);
+  const { isSignedIn, isLoaded } = useUser();
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const navItemVariants = {
+    hover: { y: -2, transition: { duration: 0.2 } },
+  };
+
+  const buttonVariants = {
+    hover: { scale: 1.05, transition: { duration: 0.2 } },
+    tap: { scale: 0.95, transition: { duration: 0.1 } },
+  };
 
   return (
     <>
       {showNotification && (
-        <div className="flex justify-between items-center bg-gradient-to-r from-blue-500 to-violet-500 text-white p-1 shadow-lg">
-          <AlertCircle className="flex-shrink-0" size={20} />
-          <span className="flex-1 text-center">
-            We're still cooking our service. Sorry for any inconvenience.
-          </span>
-          <button
-            className="text-black"
+        <motion.div
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="flex justify-between items-center bg-[#ff1a75] text-white p-2 shadow-lg"
+        >
+          <div className="flex items-center gap-2 pl-4">
+            <AlertCircle className="flex-shrink-0 text-amber-300" size={18} />
+            <span className="text-sm font-medium tracking-tighter">
+              Dashboard features are being rolled out gradually. Some features may be unavailable.
+            </span>
+          </div>
+          <motion.button
+            className="mr-4 p-1 rounded-md hover:bg-black/60 transition-colors"
             onClick={() => setShowNotification(false)}
           >
-            <X size={20} className="text-white hover:bg-gray-200/20" />
-          </button>
-        </div>
+            <X size={18} className="text-white" />
+          </motion.button>
+        </motion.div>
       )}
       <nav className="w-full bg-[#0a0a0a] backdrop-blur supports-[backdrop-filter]:bg-black/100 z-10">
         <div className="flex h-16 items-center justify-between px-20 w-full">

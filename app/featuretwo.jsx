@@ -8,7 +8,7 @@ const amaranth = Amaranth({
 
 function Featurestwo() {
   return (
-    <section className="relative min-h-screen w-full bg-gradient-to-b from-neutral-950 via-neutral-950 to-neutral-900 overflow-hidden">
+    <section className="relative min-h-screen w-full bg-black overflow-hidden">
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]" />
 
       <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/10 via-transparent to-purple-500/10" />
@@ -40,7 +40,7 @@ function Featurestwo() {
       <div className="relative z-10 container mx-auto px-4 pb-24">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
           <div className="md:row-span-2 group">
-            <div className="h-full bg-gradient-to-b from-neutral-900 to-neutral-900/50 backdrop-blur-sm p-10 rounded-3xl border border-blue-500/50 transition-all duration-500 shadow-[0_0_30px_-5px_rgba(59,130,246,0.3)] relative overflow-hidden">
+            <div className="h-full bg-[#05090F] backdrop-blur-sm p-10 rounded-3xl border border-blue-500/50 transition-all duration-500 hover:shadow-[0_0_30px_-5px_rgba(59,130,246,0.3)] relative overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-t from-blue-500/0 via-transparent to-transparent opacity-0 group-hover:opacity-10 transition-opacity duration-500" />
               <div className="h-14 w-14 rounded-2xl bg-blue-500/10 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300">
                 <Bot className="w-8 h-8 text-blue-400 group-hover:text-blue-300" />
@@ -48,7 +48,7 @@ function Featurestwo() {
               <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-blue-300 transition-colors">
                 AI-Powered Matching
               </h3>
-              <p className="text-neutral-400 leading-relaxed mb-6">
+              <p className="text-neutral-400 leading-relaxed mb-6 tracking-wider">
                 Our advanced AI algorithms analyze both candidate profiles and
                 job requirements in real-time, ensuring the most relevant
                 matches. Experience precision recruiting with intelligent
@@ -62,7 +62,7 @@ function Featurestwo() {
           </div>
 
           <div className="md:col-span-2 group">
-            <div className="bg-gradient-to-b from-neutral-900 to-neutral-900/50 backdrop-blur-sm p-10 rounded-3xl border border-purple-500/50 transition-all duration-500 shadow-[0_0_30px_-5px_rgba(168,85,247,0.3)] relative overflow-hidden">
+            <div className="bg-[#05090F] backdrop-blur-sm p-10 rounded-3xl border border-purple-500/50 transition-all duration-500 hover:shadow-[0_0_30px_-5px_rgba(168,85,247,0.3)] relative overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-t from-purple-500/0 via-transparent to-transparent opacity-0 group-hover:opacity-10 transition-opacity duration-500" />
               <div className="h-14 w-14 rounded-2xl bg-purple-500/10 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300">
                 <Code2 className="w-8 h-8 text-purple-400 group-hover:text-purple-300" />
@@ -70,7 +70,7 @@ function Featurestwo() {
               <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-purple-300 transition-colors">
                 Technical Assessment Platform
               </h3>
-              <p className="text-neutral-400 leading-relaxed">
+              <p className="text-neutral-400 leading-relaxed tracking-wider">
                 Comprehensive coding challenges and technical assessments that
                 evaluate real-world skills. Automated scoring and detailed
                 analytics provide deep insights into candidate capabilities.
@@ -79,7 +79,7 @@ function Featurestwo() {
           </div>
 
           <div className="group">
-            <div className="h-full bg-gradient-to-b from-neutral-900 to-neutral-900/50 backdrop-blur-sm p-10 rounded-3xl border border-emerald-500/50 transition-all duration-500 shadow-[0_0_30px_-5px_rgba(16,185,129,0.3)] relative overflow-hidden">
+            <div className="h-full bg-[#05090F] backdrop-blur-sm p-10 rounded-3xl border border-emerald-500/50 transition-all duration-500 hover:shadow-[0_0_30px_-5px_rgba(16,185,129,0.3)] relative overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-t from-emerald-500/0 via-transparent to-transparent opacity-0 group-hover:opacity-10 transition-opacity duration-500" />
               <div className="h-14 w-14 rounded-2xl bg-emerald-500/10 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300">
                 <LineChart className="w-8 h-8 text-emerald-400 group-hover:text-emerald-300" />
@@ -87,7 +87,7 @@ function Featurestwo() {
               <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-emerald-300 transition-colors">
                 Smart Analytics
               </h3>
-              <p className="text-neutral-400 leading-relaxed">
+              <p className="text-neutral-400 leading-relaxed tracking-wider">
                 Data-driven insights to optimize your hiring process and make
                 informed decisions based on real-time metrics and trends.
               </p>
@@ -95,7 +95,7 @@ function Featurestwo() {
           </div>
 
           <div className="group">
-            <div className="h-full bg-gradient-to-b from-neutral-900 to-neutral-900/50 backdrop-blur-sm p-10 rounded-3xl border border-amber-500/50 transition-all duration-500 shadow-[0_0_30px_-5px_rgba(251,191,36,0.3)] relative overflow-hidden">
+            <div className="h-full bg-[#05090F] backdrop-blur-sm p-10 rounded-3xl border border-amber-500/50 transition-all duration-500 hover:shadow-[0_0_30px_-5px_rgba(251,191,36,0.3)] relative overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-t from-amber-500/0 via-transparent to-transparent opacity-0 group-hover:opacity-10 transition-opacity duration-500" />
               <div className="h-14 w-14 rounded-2xl bg-amber-500/10 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300">
                 <Users className="w-8 h-8 text-amber-400 group-hover:text-amber-300" />
@@ -103,7 +103,7 @@ function Featurestwo() {
               <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-amber-300 transition-colors">
                 Automated Screening
               </h3>
-              <p className="text-neutral-400 leading-relaxed">
+              <p className="text-neutral-400 leading-relaxed tracking-wider">
                 Save time with intelligent pre-screening that identifies top
                 candidates automatically using advanced matching algorithms.
               </p>
@@ -111,8 +111,6 @@ function Featurestwo() {
           </div>
         </div>
       </div>
-
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-neutral-900 to-transparent" />
     </section>
   );
 }

@@ -36,7 +36,7 @@ export function FooterSection() {
                     <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
                         <p className="text-sm text-gray-400">
                             <span className="text-blue-400">&copy;</span> {currentYear}{" "}
-                            <span className="font-semibold text-white">AlgoHire</span>. All
+                            <span className="font-semibold text-white">AlgoEvaluator</span>. All
                             rights reserved.
                         </p>
                         <div className="flex space-x-6 text-sm">

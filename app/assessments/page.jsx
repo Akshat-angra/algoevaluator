@@ -52,7 +52,7 @@ export default function AssessmentsPage() {
     }, [searchTerm, selectedDifficulty, assessments])
 
     return (
-        <div className="min-h-screen bg-gray-900 text-gray-100">
+        <div className="min-h-screen bg-[#05090F] text-gray-200">
             <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -60,7 +60,7 @@ export default function AssessmentsPage() {
                     transition={{ duration: 0.5 }}
                     className="mb-8"
                 >
-                    <h1 className="text-4xl font-bold mb-4 bg-gradient-to-r from-pink-400 to-purple-500 bg-clip-text text-transparent">
+                    <h1 className="text-4xl font-bold mb-4 bg-[#FF1A75] bg-clip-text text-transparent">
                         Assessments
                     </h1>
                     <p className="text-xl text-gray-300">Challenge yourself and improve your algorithmic skills.</p>

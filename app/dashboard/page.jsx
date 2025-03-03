@@ -5,6 +5,7 @@ import ClipLoader from "react-spinners/ClipLoader";
 import { RiCodeBoxLine } from "react-icons/ri";
 import { BsPeople } from "react-icons/bs";
 import { MdOutlineAssessment } from "react-icons/md";
+import { FooterSection } from "../components/footer/FooterSection";
 
 function Page() {
   const { isLoaded, isSignedIn, user } = useUser();
@@ -284,6 +285,7 @@ function Page() {
           </div>
         </div>
       </main>
+      <FooterSection />
     </div>
   );
 }
