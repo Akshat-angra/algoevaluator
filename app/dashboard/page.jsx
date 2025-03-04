@@ -6,6 +6,7 @@ import { RiCodeBoxLine } from "react-icons/ri";
 import { BsPeople } from "react-icons/bs";
 import { MdOutlineAssessment } from "react-icons/md";
 import { FooterSection } from "../components/footer/FooterSection";
+import ActiveUsersTracker from "../components/ActiveUsersTracker";
 
 function Page() {
   const { isLoaded, isSignedIn, user } = useUser();
@@ -79,6 +80,7 @@ function Page() {
               <h1 className="text-xl font-bold text-white">
                 AlgoHire Dashboard
               </h1>
+              <span className=""><ActiveUsersTracker /></span>
               {isDataLoading && (
                 <span className="text-xs px-3 py-1 rounded-full bg-zinc-800 text-zinc-400">
                   Syncing data...
