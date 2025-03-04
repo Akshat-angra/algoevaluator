@@ -248,13 +248,11 @@
 //     );
 // }
 
-// export default Navbar;
-
+// export default Navbar;'
 
 "use client";
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Quicksand } from 'next/font/google';
 import { motion, AnimatePresence } from 'framer-motion';
 import { cn } from '@/lib/utils';
 import { useUser, UserButton } from "@clerk/clerk-react";
@@ -280,11 +278,6 @@ import {
     ChevronRight
 } from 'lucide-react';
 import GlobalVisitTracker from './components/GlobalVisitTracker';
-
-const quick = Quicksand({
-    subsets: ['latin'],
-    weight: ['500', '700']
-});
 
 const routes = [
     {
@@ -320,11 +313,17 @@ export function Navbar() {
     const { isLoaded, user } = useUser();
     const [showScrollTop, setShowScrollTop] = useState(false);
     const [scrolled, setScrolled] = useState(false);
+    const [scrollProgress, setScrollProgress] = useState(0);
 
     useEffect(() => {
         const handleScroll = () => {
-            setShowScrollTop(window.scrollY > 300);
-            setScrolled(window.scrollY > 20);
+            const scrollTop = window.scrollY;
+            setShowScrollTop(scrollTop > 300);
+            setScrolled(scrollTop > 20);
+
+            const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+            setScrollProgress(progress);
         };
 
         window.addEventListener("scroll", handleScroll);
@@ -350,7 +349,7 @@ export function Navbar() {
                             <div className="max-w-7xl mx-auto flex items-center justify-between">
                                 <div className="flex items-center space-x-2">
                                     <AlertCircle className="h-5 w-5 text-yellow-300" />
-                                    <p className={`text-sm ${quick.className}`}>
+                                    <p className="text-sm font-medium">
                                         We're still cooking our service. Sorry for any inconvenience.
                                     </p>
                                     <div className="hidden md:flex items-center gap-4 border-l border-white/30 pl-4">
@@ -383,12 +382,12 @@ export function Navbar() {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex h-16 items-center justify-between">
                         <div className="flex-shrink-0">
-                            <Link href="/" className={`flex items-center gap-2 ${quick.className} group`}>
+                            <Link href="/" className="flex items-center gap-2 group">
                                 <div className="relative">
                                     <Code2 className="h-8 w-8 text-blue-400 group-hover:text-blue-300 transition-colors duration-300" />
                                     <div className="absolute inset-0 bg-blue-400/20 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                                 </div>
-                                <div className={`flex items-baseline ${quick.className}`}>
+                                <div className="flex items-baseline">
                                     <span className="text-xl font-bold tracking-tight text-white">
                                         Algo
                                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">
@@ -458,7 +457,7 @@ export function Navbar() {
                                 </div>
                             )}
                         </div>
-                        \
+
                         <div className="flex md:hidden">
                             <Sheet open={isOpen} onOpenChange={setIsOpen}>
                                 <SheetTrigger asChild>
@@ -475,7 +474,7 @@ export function Navbar() {
                                 >
                                     <div className="flex flex-col h-full">
                                         <div className="p-4 border-b border-gray-800">
-                                            <div className={`flex items-baseline ${quick.className}`}>
+                                            <div className="flex items-baseline">
                                                 <span className="text-xl font-bold tracking-tight text-white">
                                                     Algo
                                                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">
@@ -551,6 +550,17 @@ export function Navbar() {
                             </Sheet>
                         </div>
                     </div>
+                </div>
+
+                {/* Scroll Progress Bar */}
+                <div className="h-0.5 w-full bg-transparent overflow-hidden">
+                    <motion.div
+                        className="h-full bg-gradient-to-r from-blue-500 to-cyan-500"
+                        style={{
+                            width: `${scrollProgress}%`,
+                            transition: "width 0.1s ease-out"
+                        }}
+                    />
                 </div>
             </motion.nav>
 
