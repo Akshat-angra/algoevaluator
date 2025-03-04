@@ -4,7 +4,7 @@ import { ClerkProvider } from "@clerk/nextjs";
 import Provider from "./provider";
 import CustomCursor from "./components/CustomCursor";
 import RegisterUser from "./components/RegisterUser";
-import LoginUser from "./components/loginUser";
+import LoginUser from "./components/LoginUser";
 
 const poppins = Poppins({
     subsets: ["latin"],
