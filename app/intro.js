@@ -320,7 +320,6 @@ import {
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Amaranth, Quicksand } from 'next/font/google';
-import Typed from "react-typed";
 import Link from 'next/link';
 
 const amaranth = Amaranth({
@@ -426,7 +425,6 @@ function App() {
             />
           ))}
         </div>
-
         {/* Animated circuit lines */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           {Array.from({ length: 5 }).map((_, i) => (
@@ -704,7 +702,9 @@ function App() {
                   transition={{ duration: 0.5, delay: 0.2 }}
                   whileHover={{ x: 5 }}
                 >
-                  <span>View All Features</span>
+                  <Link href={"/feature"}>
+                    <span>View All Features</span>
+                  </Link>
                   <ChevronRight size={16} />
                 </motion.button>
               </div>
@@ -784,8 +784,7 @@ function App() {
           toastClassName="Toastify__toast"
           bodyClassName="Toastify__toast-body"
         />
-      </div>
-    </>
+      </div>    </>
   );
 }
 

@@ -1,7 +1,7 @@
 import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
 
 // Protect dashboard and assessments subroutes but not the main /assessments route
-const isProtectedRoute = createRouteMatcher(["/dashboard(.*)", "/assessments/(.+)"]);
+const isProtectedRoute = createRouteMatcher(["/dashboard(.*)", "/assessments/(.+)", "/chat(.*)"]);
 
 export default clerkMiddleware(async (auth, req) => {
   if (isProtectedRoute(req)) await auth.protect();

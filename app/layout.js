@@ -1,4 +1,4 @@
-import { Poppins } from "next/font/google";
+import { Josefin_Sans, Poppins } from "next/font/google";
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import Provider from "./provider";
@@ -7,6 +7,11 @@ import RegisterUser from "./components/RegisterUser";
 import LoginUser from "./components/LoginUser";
 
 const poppins = Poppins({
+    subsets: ["latin"],
+    weight: ["400", "500", "600", "700"],
+});
+
+const josefin = Josefin_Sans({
     subsets: ["latin"],
     weight: ["400", "500", "600", "700"],
 });
@@ -20,7 +25,7 @@ export default function RootLayout({ children }) {
     return (
         <ClerkProvider>
             <html lang="en">
-                <body className={poppins.className}>
+                <body className={josefin.className}>
                     <LoginUser />
                     <RegisterUser />
                     {/* <CustomCursor /> */}

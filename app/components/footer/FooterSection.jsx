@@ -3,6 +3,7 @@ import { FooterLinks } from "./FooterLinks";
 import { FooterNewsletter } from "./FooterNewletter";
 import { FooterSocial } from "./FooterSocial";
 import { Code2 } from "lucide-react";
+import Link from "next/link";
 
 export function FooterSection() {
     const currentYear = new Date().getFullYear();
@@ -14,7 +15,8 @@ export function FooterSection() {
                     <div className="lg:col-span-4">
                         <div className="flex items-center space-x-2 mb-4">
                             <Code2 className="w-8 h-8 text-blue-500" />
-                            <h2 className="text-2xl font-bold text-white">AlgoEvaluator</h2>
+                            <Link href="/">
+                                <h2 className="text-2xl font-bold text-white">AlgoEvaluator</h2></Link>
                         </div>
                         <p className="text-gray-400 mb-6 leading-relaxed">
                             Revolutionizing technical interviews with AI-powered assessments
