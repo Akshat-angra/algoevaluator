@@ -161,7 +161,7 @@ function PracticeSection() {
     return (
         <div className="min-h-screen bg-[#0a0a0a] text-white">
             <div className="relative overflow-hidden bg-gradient-to-b from-blue-600/20 to-purple-600/20 border-b border-white/10">
-                <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:60px_60px]" />
+                <div className="absolute bg-grid-white/[0.02] bg-[size:60px_60px]" />
                 <div className="absolute h-full w-full bg-gradient-to-b from-black/80 via-black/50 to-black/80" />
                 <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
                     <div className="text-center">
@@ -216,7 +216,7 @@ function PracticeSection() {
                 </div>
 
 
-                <div className="absolute inset-0 opacity-50 z-10">
+                {/* <div className="absolute inset-0 opacity-50 z-10">
                     {[
                         { name: "React", x: "10%", y: "20%", delay: 0 },
                         { name: "Node.js", x: "80%", y: "15%", delay: 0.5 },
@@ -241,7 +241,7 @@ function PracticeSection() {
                             {tech.name}
                         </motion.div>
                     ))}
-                </div>
+                </div> */}
 
                 {/* Sort Controls */}
                 <div className="flex justify-end mb-6 space-x-4">

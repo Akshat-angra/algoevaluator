@@ -622,6 +622,7 @@ import {
     Sparkles
 } from 'lucide-react';
 import GlobalVisitTracker from './components/GlobalVisitTracker';
+import Image from 'next/image';
 
 const routes = [
     {
@@ -821,6 +822,7 @@ export function Navbar() {
                             <Link href="/" className="flex items-center gap-2 group">
                                 <div className="relative">
                                     <Code2 className="h-8 w-8 text-blue-400 group-hover:text-blue-300 transition-colors duration-300" />
+                                    {/* <Image src="/images/logo.webp" alt="logo" width={48} height={48} className="bg-transparent" /> */}
                                     <div className="absolute inset-0 bg-blue-400/20 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                                 </div>
                                 <div className="flex items-baseline">
@@ -830,7 +832,7 @@ export function Navbar() {
                                             Evaluator
                                         </span>
                                     </span>
-                                    <span className="absolute ml-[140px] text-xs px-2 py-0.5 rounded-md bg-gradient-to-r from-blue-500/20 to-cyan-500/20 border border-blue-500/30 text-blue-400">
+                                    <span className="absolute ml-[132px] text-xs px-2 py-0.5 rounded-md bg-gradient-to-r from-blue-500/20 to-cyan-500/20 border border-blue-500/30 text-blue-400">
                                         Beta
                                     </span>
                                 </div>

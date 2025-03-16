@@ -321,6 +321,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Amaranth, Quicksand } from 'next/font/google';
 import Link from 'next/link';
+import FeedbackForm from './components/FeedbackForm';
 
 const amaranth = Amaranth({
   subsets: ["latin"],
@@ -426,6 +427,7 @@ function App() {
           ))}
         </div>
         {/* Animated circuit lines */}
+        <FeedbackForm />
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           {Array.from({ length: 5 }).map((_, i) => (
             <motion.div

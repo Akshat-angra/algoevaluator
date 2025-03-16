@@ -20,6 +20,9 @@ function Featurestwo() {
         }}
       >
         Insights
+        <div className="flex justify-center mb-4 md:mt-[-8px] sm:mb-32 hidden md:block">
+          <img src="./images/one.svg" alt="Underline" className="w-auto" />
+        </div>
       </span>
 
       <div className="relative z-10 container mx-auto px-4 pt-48 pb-8">

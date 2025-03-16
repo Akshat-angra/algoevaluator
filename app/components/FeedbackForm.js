@@ -189,13 +189,20 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { MessageSquare, Star, X, Send, Sparkles, Brain, Cpu } from "lucide-react";
+import { MessageSquare, Star, X, Send, Sparkles, Brain } from "lucide-react";
 import { cn } from '@/lib/utils';
+
+// This component can be used if you want to visually hide elements but keep them accessible
+const VisuallyHidden = ({ children }) => (
+    <span className="absolute w-px h-px p-0 -m-px overflow-hidden whitespace-nowrap border-0">
+        {children}
+    </span>
+);
 
 export function FeedbackForm() {
     const [open, setOpen] = useState(false);
@@ -234,160 +241,151 @@ export function FeedbackForm() {
             const data = await res.json();
 
             if (data.success) {
-                setStatus({ message: 'Feedback processed successfully! Thank you for helping us improve. 🎯', type: 'success' });
+                setStatus({ message: 'Thank you for your feedback!', type: 'success' });
                 setName('');
                 setEmail('');
                 setMessage('');
                 setRating(5);
                 setTimeout(() => setOpen(false), 2000);
             } else {
-                setStatus({ message: 'Failed to process feedback.', type: 'error' });
+                setStatus({ message: 'Failed to submit feedback.', type: 'error' });
             }
         } catch (error) {
-            setStatus({ message: 'Error processing feedback.', type: 'error' });
+            setStatus({ message: 'Error submitting feedback.', type: 'error' });
         }
     };
 
     return (
         <Dialog open={open} onOpenChange={setOpen}>
-            <DialogContent className="sm:max-w-[500px] md:max-w-[600px] bg-[#0A0118] border border-[#6366F1]/20 shadow-[0_0_100px_0_rgba(99,102,241,0.15)] backdrop-blur-2xl rounded-2xl overflow-hidden p-0">
-                {/* Animated gradient backgrounds */}
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(99,102,241,0.15),transparent_50%)] animate-pulse" />
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(168,85,247,0.15),transparent_50%)] animate-pulse delay-700" />
+            <DialogContent className="max-w-md bg-black border border-zinc-800 rounded-xl shadow-xl shadow-purple-500/10 p-0 overflow-hidden">
+                {/* Properly add DialogTitle for accessibility */}
+                <DialogTitle className="sr-only">Feedback Form</DialogTitle>
 
-                {/* Neural network pattern overlay */}
-                <div className="absolute inset-0 opacity-5"
-                    style={{
-                        backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%236366F1' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-                    }}
-                />
-
-                <div className="relative p-6">
-                    <DialogHeader className="relative border-b border-[#6366F1]/20 pb-6">
-                        <div className="flex items-center gap-4">
-                            {/* Logo animation container */}
-                            <div className="relative">
-                                <div className="absolute inset-0 bg-gradient-to-r from-[#6366F1] to-[#A855F7] rounded-2xl blur-xl opacity-50 animate-pulse" />
-                                <div className="relative p-3 rounded-2xl bg-gradient-to-r from-[#6366F1] to-[#A855F7]">
-                                    <Brain className="w-6 h-6 text-white" />
-                                </div>
-                            </div>
-
-                            <div className="flex flex-col">
-                                <div className="flex items-center gap-2">
-                                    <span className="text-2xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-[#6366F1] to-[#A855F7]">
-                                        AlgoFeedback
-                                    </span>
-                                    <div className="px-2 py-0.5 rounded-full bg-[#6366F1]/10 border border-[#6366F1]/20">
-                                        <span className="text-xs font-medium text-[#6366F1]">AI-Powered</span>
-                                    </div>
-                                </div>
-                                <span className="text-sm text-[#6366F1]/70">Enhancing experiences through intelligent feedback</span>
-                            </div>
+                {/* Header */}
+                <div className="bg-gradient-to-r from-purple-600 to-indigo-600 p-6">
+                    <div className="flex items-center gap-3">
+                        <div className="bg-white/10 p-2 rounded-lg backdrop-blur-sm">
+                            <MessageSquare className="w-6 h-6 text-white" />
                         </div>
-                    </DialogHeader>
-
-                    <div className="relative grid gap-6 py-6">
-                        <div className="grid md:grid-cols-2 gap-4">
-                            <div className="space-y-2">
-                                <Label htmlFor="name" className="text-[#6366F1] font-medium flex items-center gap-2">
-                                    Name
-                                    <span className="text-[#EC4899]">*</span>
-                                </Label>
-                                <Input
-                                    id="name"
-                                    placeholder="Enter your name"
-                                    value={name}
-                                    onChange={(e) => setName(e.target.value)}
-                                    className="bg-[#6366F1]/5 border-[#6366F1]/20 text-white placeholder:text-[#6366F1]/40 focus:border-[#A855F7] focus:ring-[#A855F7]/20 transition-all duration-200"
-                                />
-                            </div>
-                            <div className="space-y-2">
-                                <Label htmlFor="email" className="text-[#6366F1] font-medium flex items-center gap-2">
-                                    Email
-                                    <span className="text-[#6366F1]/70 text-sm">(Optional)</span>
-                                </Label>
-                                <Input
-                                    id="email"
-                                    type="email"
-                                    placeholder="your@email.com"
-                                    value={email}
-                                    onChange={(e) => setEmail(e.target.value)}
-                                    className="bg-[#6366F1]/5 border-[#6366F1]/20 text-white placeholder:text-[#6366F1]/40 focus:border-[#A855F7] focus:ring-[#A855F7]/20 transition-all duration-200"
-                                />
-                            </div>
+                        <div>
+                            <h2 className="text-xl font-bold text-white">Share Your Thoughts</h2>
+                            <p className="text-white/80 text-sm">We value your feedback</p>
                         </div>
+                    </div>
+                </div>
 
+                {/* Subtle gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-b from-purple-500/5 to-indigo-500/5 pointer-events-none" />
+
+                {/* Form */}
+                <div className="p-6 space-y-5 relative z-10">
+                    <div className="grid grid-cols-2 gap-4">
                         <div className="space-y-2">
-                            <Label htmlFor="message" className="text-[#6366F1] font-medium flex items-center gap-2">
-                                Your Feedback
-                                <span className="text-[#EC4899]">*</span>
+                            <Label htmlFor="name" className="text-sm font-medium text-zinc-300">
+                                Name <span className="text-purple-400">*</span>
                             </Label>
-                            <Textarea
-                                id="message"
-                                placeholder="Share your thoughts with us..."
-                                value={message}
-                                onChange={(e) => setMessage(e.target.value)}
-                                className="min-h-[120px] bg-[#6366F1]/5 border-[#6366F1]/20 text-white placeholder:text-[#6366F1]/40 focus:border-[#A855F7] focus:ring-[#A855F7]/20 transition-all duration-200 resize-none"
+                            <Input
+                                id="name"
+                                placeholder="Your name"
+                                value={name}
+                                onChange={(e) => setName(e.target.value)}
+                                className="bg-zinc-900 border-zinc-800 text-white placeholder:text-zinc-500 focus:ring-purple-500 focus:border-purple-500"
+                                aria-required="true"
                             />
                         </div>
+                        <div className="space-y-2">
+                            <Label htmlFor="email" className="text-sm font-medium text-zinc-300">
+                                Email <span className="text-zinc-500 text-xs">(Optional)</span>
+                            </Label>
+                            <Input
+                                id="email"
+                                type="email"
+                                placeholder="your@email.com"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                                className="bg-zinc-900 border-zinc-800 text-white placeholder:text-zinc-500 focus:ring-purple-500 focus:border-purple-500"
+                            />
+                        </div>
+                    </div>
 
-                        <div className="space-y-3">
-                            <Label className="text-[#6366F1] font-medium">Rate your experience</Label>
-                            <div className="flex gap-2">
-                                {[1, 2, 3, 4, 5].map((value) => (
-                                    <Button
-                                        key={value}
-                                        type="button"
-                                        variant="outline"
-                                        className={cn(
-                                            "flex-1 bg-[#6366F1]/5 border-[#6366F1]/20 hover:bg-[#6366F1]/10 transition-all duration-300",
-                                            rating === value && "bg-gradient-to-r from-[#6366F1] to-[#A855F7] text-white border-transparent hover:from-[#6366F1] hover:to-[#A855F7] shadow-lg shadow-[#6366F1]/20"
-                                        )}
-                                        onClick={() => setRating(value)}
-                                    >
-                                        <Star className={cn(
-                                            "w-5 h-5 transition-transform duration-200 hover:scale-110",
-                                            rating >= value ? "fill-current text-[#F59E0B]" : "fill-none text-[#6366F1]/70"
-                                        )} />
-                                    </Button>
-                                ))}
+                    <div className="space-y-2">
+                        <Label htmlFor="message" className="text-sm font-medium text-zinc-300">
+                            Your Feedback <span className="text-purple-400">*</span>
+                        </Label>
+                        <Textarea
+                            id="message"
+                            placeholder="Tell us what you think..."
+                            value={message}
+                            onChange={(e) => setMessage(e.target.value)}
+                            className="min-h-24 bg-zinc-900 border-zinc-800 text-white placeholder:text-zinc-500 focus:ring-purple-500 focus:border-purple-500 resize-none"
+                            aria-required="true"
+                        />
+                    </div>
+
+                    <div className="space-y-3">
+                        <Label className="text-sm font-medium text-zinc-300">
+                            Rate your experience
+                        </Label>
+                        <div className="flex gap-2" role="radiogroup" aria-label="Rating">
+                            {[1, 2, 3, 4, 5].map((value) => (
+                                <Button
+                                    key={value}
+                                    type="button"
+                                    variant="outline"
+                                    className={cn(
+                                        "flex-1 bg-zinc-900 border-zinc-800 hover:bg-zinc-800 transition-all duration-200",
+                                        rating === value && "bg-gradient-to-r from-purple-600 to-indigo-600 text-white border-transparent hover:from-purple-700 hover:to-indigo-700"
+                                    )}
+                                    onClick={() => setRating(value)}
+                                    aria-checked={rating === value}
+                                    role="radio"
+                                    aria-label={`${value} star${value !== 1 ? 's' : ''}`}
+                                >
+                                    <Star className={cn(
+                                        "w-5 h-5 transition-all duration-200",
+                                        rating >= value ? "fill-current text-amber-400" : "fill-none text-zinc-500"
+                                    )} />
+                                </Button>
+                            ))}
+                        </div>
+                    </div>
+
+                    {status.message && (
+                        <div className={cn(
+                            "p-3 rounded-lg text-sm border",
+                            status.type === 'success' && "bg-green-900/20 text-green-400 border-green-800/30",
+                            status.type === 'error' && "bg-red-900/20 text-red-400 border-red-800/30",
+                            status.type === 'info' && "bg-purple-900/20 text-purple-400 border-purple-800/30"
+                        )}
+                            role="alert"
+                            aria-live="polite"
+                        >
+                            <div className="flex items-center gap-2">
+                                {status.type === 'success' && <Sparkles className="w-4 h-4" />}
+                                {status.type === 'info' && <Brain className="w-4 h-4 animate-pulse" />}
+                                {status.message}
                             </div>
                         </div>
+                    )}
+                </div>
 
-                        {status.message && (
-                            <div className={cn(
-                                "relative p-4 rounded-xl text-sm font-medium border backdrop-blur-sm",
-                                status.type === 'success' && "bg-green-500/10 text-green-300 border-green-500/20",
-                                status.type === 'error' && "bg-red-500/10 text-red-300 border-red-500/20",
-                                status.type === 'info' && "bg-[#6366F1]/10 text-[#6366F1] border-[#6366F1]/20"
-                            )}>
-                                <div className="flex items-center justify-center gap-2">
-                                    {status.type === 'success' && <Sparkles className="w-4 h-4" />}
-                                    {status.type === 'info' && <Cpu className="w-4 h-4 animate-pulse" />}
-                                    {status.message}
-                                </div>
-                            </div>
-                        )}
-                    </div>
-
-                    <div className="relative flex justify-end gap-3 border-t border-[#6366F1]/20 pt-6">
-                        <Button
-                            variant="outline"
-                            onClick={() => setOpen(false)}
-                            className="bg-[#6366F1]/5 border-[#6366F1]/20 text-[#6366F1] hover:bg-[#6366F1]/10 hover:text-white transition-all duration-200"
-                        >
-                            <X className="w-4 h-4 mr-2" />
-                            Close
-                        </Button>
-                        <Button
-                            onClick={handleSubmit}
-                            className="bg-gradient-to-r from-[#6366F1] to-[#A855F7] text-white hover:from-[#4F46E5] hover:to-[#9333EA] shadow-lg shadow-[#6366F1]/20 transition-all duration-300"
-                        >
-                            <Send className="w-4 h-4 mr-2" />
-                            Submit Feedback
-                        </Button>
-                    </div>
+                {/* Footer */}
+                <div className="border-t border-zinc-800 p-4 bg-zinc-900/50 flex justify-end gap-3">
+                    <Button
+                        variant="outline"
+                        onClick={() => setOpen(false)}
+                        className="bg-transparent border-zinc-700 text-zinc-300 hover:bg-zinc-800 hover:text-white transition-all duration-200"
+                    >
+                        <X className="w-4 h-4 mr-2" />
+                        Close
+                    </Button>
+                    <Button
+                        onClick={handleSubmit}
+                        className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white hover:from-purple-700 hover:to-indigo-700 transition-all duration-200"
+                    >
+                        <Send className="w-4 h-4 mr-2" />
+                        Submit
+                    </Button>
                 </div>
             </DialogContent>
         </Dialog>

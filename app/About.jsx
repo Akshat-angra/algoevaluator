@@ -91,10 +91,10 @@ const About = () => {
 
   return (
     <div className="relative w-full bg-black overflow-hidden">
-       <ToastContainer
-              toastClassName="Toastify__toast"
-              bodyClassName="Toastify__toast-body"
-            />
+      <ToastContainer
+        toastClassName="Toastify__toast"
+        bodyClassName="Toastify__toast-body"
+      />
       <section className="relative min-h-screen w-full bg-gradient-to-b from-gray-900 via-black to-black">
         <span
           className={`absolute top-0 left-0 text-[12vw] sm:text-[10vw] md:text-[8vw] lg:text-[6vw] text-transparent font-bold z-10 pl-7 shadow-lg ${amaranth.className}`}
@@ -103,6 +103,10 @@ const About = () => {
           }}
         >
           About
+          <div className="flex justify-center mb-4 md:mt-[-16px] sm:mb-32 hidden md:block">
+            <img src="./images/one.svg" alt="Underline" className="w-auto" />
+          </div>
+
         </span>
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]" />
