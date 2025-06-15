@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect } from 'react';
-import { Bot, Brain, Sparkles, ChevronRight, Terminal, Zap, Star, Target, Clock1, Trophy } from 'lucide-react';
+import { Bot, Brain, Sparkles, ChevronRight, Terminal, Zap, Star, Target, Clock1, Trophy} from 'lucide-react';
 import { FooterSection } from '../components/footer/FooterSection';
 import { Button } from '../components/ui/button';
 import { Bell, Code, Check, AlertCircle } from 'lucide-react';
@@ -8,6 +8,7 @@ import { Toaster, toast } from 'sonner';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { useAuth } from "@clerk/nextjs";
+import AlgoStubAIIntroduction from '../components/AiIntro';
 
 export default function App() {
     const [email, setEmail] = useState('');
@@ -142,7 +143,7 @@ export default function App() {
                     <div className="absolute bottom-20 right-10 w-80 h-80 bg-purple-600/20 rounded-full filter blur-3xl"></div>
                 </div>
 
-                <div className="container mx-auto px-4 relative z-10">
+                <div className="container mx-auto px-4 relative z-10 max-w-7xl">
                     <div className="grid md:grid-cols-2 gap-16 items-center">
                         <div className="space-y-8" style={{ backgroundImage: "url('./images/course-hero-grid.svg')" }}>
                             <div className="inline-flex items-center px-3 py-1 rounded-full bg-indigo-900/50 text-indigo-300 border border-indigo-700/50">

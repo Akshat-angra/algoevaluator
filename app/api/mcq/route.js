@@ -77,7 +77,7 @@
 
 
 
-import { connectToDB } from "@/lib/mongodb";
+import { connectToDB } from "../../../../lib/mongodb";
 import MCQ from "@/models/mcq.model";
 import { NextResponse } from "next/server";
 

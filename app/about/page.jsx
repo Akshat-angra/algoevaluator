@@ -18,7 +18,7 @@ const montserrat = Montserrat({
 function Page() {
     return (
         <div className="min-h-screen w-full bg-gradient-to-b from-gray-900 via-black to-black text-white overflow-hidden">
-            <div className="container mx-auto px-4 py-12 relative">
+            <div className="container mx-auto px-4 py-12 relative max-w-7xl">
                 <div className="relative">
                     <span
                         className={`absolute top-0 left-0 text-[20vw] md:text-[25vw] lg:text-[20vw] font-bold text-transparent z-10 leading-none ${amaranth.className}`}
@@ -42,7 +42,7 @@ function Page() {
                 </div>
             </div>
 
-            <div className="container mx-auto px-4 py-12">
+            <div className="container mx-auto px-4 py-12 max-w-7xl">
                 <div className="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-6">
                     <div className="col-span-1 md:col-span-2 md:row-span-1 rounded-xl shadow-lg p-8 bg-gradient-to-r from-gray-800">
                         <Briefcase size={40} className="text-purple-500 mb-4" />

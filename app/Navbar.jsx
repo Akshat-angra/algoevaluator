@@ -619,10 +619,17 @@ import {
     Music,
     Volume2,
     ChevronLeft,
-    Sparkles
+    Sparkles,
+    TerminalIcon
 } from 'lucide-react';
 import GlobalVisitTracker from './components/GlobalVisitTracker';
 import Image from 'next/image';
+import { Josefin_Sans } from 'next/font/google';
+
+const josefin = Josefin_Sans({
+    weight: "400",
+    subsets: ["latin"]
+});
 
 const routes = [
     {
@@ -650,9 +657,14 @@ const routes = [
         icon: MessageCircle,
         href: "/chat",
     },
+    {
+        label: "AiCompile",
+        icon: Code2,
+        href: "/aicompile",
+    },
 ];
 
-export function Navbar() {
+function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
     const [showNotification, setShowNotification] = useState(true);
     const [showMusicTab, setShowMusicTab] = useState(true);
@@ -701,7 +713,7 @@ export function Navbar() {
                         onHoverEnd={() => setIsMusicTabHovered(false)}
                         className="fixed right-0 top-1/2 -translate-y-1/2 z-50 flex items-center"
                     >
-                        <div className="flex items-center bg-gradient-to-r from-blue-600 to-cyan-600 rounded-l-2xl shadow-2xl overflow-hidden backdrop-blur-sm border border-white/10">
+                        <div className={`flex items-center bg-gradient-to-r from-blue-600 to-cyan-600 rounded-l-2xl shadow-2xl overflow-hidden backdrop-blur-sm border border-white/10 ${josefin.className}`}>
                             <motion.div
                                 className="flex items-center p-4 text-white"
                                 animate={{
@@ -816,13 +828,12 @@ export function Navbar() {
                 transition={{ duration: 0.3 }}
                 className="sticky top-0 z-50 w-full"
             >
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ${josefin.className}`}>
                     <div className="flex h-16 items-center justify-between">
                         <div className="flex-shrink-0">
                             <Link href="/" className="flex items-center gap-2 group">
                                 <div className="relative">
                                     <Code2 className="h-8 w-8 text-blue-400 group-hover:text-blue-300 transition-colors duration-300" />
-                                    {/* <Image src="/images/logo.webp" alt="logo" width={48} height={48} className="bg-transparent" /> */}
                                     <div className="absolute inset-0 bg-blue-400/20 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                                 </div>
                                 <div className="flex items-baseline">
@@ -990,15 +1001,16 @@ export function Navbar() {
                     </div>
                 </div>
 
-                {/* Scroll Progress Bar */}
-                <div className="h-0.5 w-full bg-transparent overflow-hidden">
+                {/* New Scroll Progress Bar */}
+                <div className="relative h-1 w-full bg-gray-900/50 overflow-hidden">
                     <motion.div
-                        className="h-full bg-gradient-to-r from-blue-500 to-cyan-500"
-                        style={{
-                            width: `${scrollProgress}%`,
-                            transition: "width 0.1s ease-out"
-                        }}
+                        className="absolute h-full bg-gradient-to-r from-blue-500 to-cyan-500 rounded-r-full"
+                        style={{ width: `${scrollProgress}%` }}
+                        initial={{ width: 0 }}
+                        animate={{ width: `${scrollProgress}%` }}
+                        transition={{ type: "spring", stiffness: 100, damping: 20 }}
                     />
+                    <div className="absolute inset-0 h-full bg-gradient-to-r from-blue-500/20 to-cyan-500/20 opacity-30" />
                 </div>
             </motion.nav>
 

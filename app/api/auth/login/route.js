@@ -1,36 +1,29 @@
 import { NextResponse } from "next/server";
-import { connectToDB } from "@/lib/mongodb";
+import { connectToDB } from "../../../../lib/mongodb";
 import User from "@/models/User";
-import { auth } from "@clerk/nextjs/server";
 
-export async function POST() {
+export async function POST(req) {
     try {
-        console.log("🔍 Fetching Clerk auth...");
-        const { userId } = auth();
-
-        if (!userId) {
-            console.error("❌ Unauthorized: No user ID found.");
-            return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-        }
-
         await connectToDB();
 
-        // Find user and update last login time
-        const user = await User.findOneAndUpdate(
+        const { userId, lastLogin } = await req.json();
+
+        if (!userId || !lastLogin) {
+            return NextResponse.json({ error: "Missing data" }, { status: 400 });
+        }
+        const updatedUser = await User.findOneAndUpdate(
             { clerkId: userId },
-            { lastLogin: new Date() },
-            { new: true }
+            { lastLogin },
+            { upsert: true, new: true }
         );
 
-        if (!user) {
-            console.error("❌ User not found in DB.");
-            return NextResponse.json({ error: "User not found" }, { status: 404 });
+        if (!updatedUser) {
+            return NextResponse.json({ error: "User not found or could not be updated" }, { status: 404 });
         }
 
-        console.log("✅ User login recorded:", user);
-        return NextResponse.json({ message: "Login recorded", user }, { status: 200 });
+        return NextResponse.json({ success: true, message: "Login tracked", lastLogin });
     } catch (error) {
-        console.error("❌ Error recording login:", error);
-        return NextResponse.json({ error: "Internal Server Error" }, { status: 500 });
+        console.error("Error in login tracking:", error);
+        return NextResponse.json({ error: "Internal Server Error", details: error.message }, { status: 500 });
     }
 }

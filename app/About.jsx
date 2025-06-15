@@ -97,7 +97,7 @@ const About = () => {
       />
       <section className="relative min-h-screen w-full bg-gradient-to-b from-gray-900 via-black to-black">
         <span
-          className={`absolute top-0 left-0 text-[12vw] sm:text-[10vw] md:text-[8vw] lg:text-[6vw] text-transparent font-bold z-10 pl-7 shadow-lg ${amaranth.className}`}
+          className={`absolute top-0 left-0 text-[12vw] sm:text-[10vw] md:text-[8vw] lg:text-[6vw] text-transparent font-bold z-10 pl-7 shadow-lg ${amaranth.className} max-w-7xl`}
           style={{
             WebkitTextStroke: "1px #904bfa",
           }}
@@ -169,7 +169,7 @@ const About = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="relative">
               <img
-                src="https://st.quantrimang.com/photos/image/2019/06/27/demo-la-gi-2.jpg"
+                src="/images/new.jpg"
                 alt="AI Analysis Visual"
                 className="rounded-xl shadow-2xl"
               />

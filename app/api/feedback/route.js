@@ -1,5 +1,5 @@
 import { getAuth } from '@clerk/nextjs/server';
-import { connectToDB } from '@/lib/mongodb';
+import { connectToDB } from "../../../../lib/mongodb";
 import Feedback from '@/models/feedback.model';
 import { NextResponse } from 'next/server';
 

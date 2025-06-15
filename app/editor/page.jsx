@@ -16,7 +16,7 @@ import AIMetrics from './AIMetrics';
 import { FooterSection } from '../components/footer/FooterSection';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Amaranth } from 'next/font/google';
+import { Amaranth, DM_Sans } from 'next/font/google';
 
 const amaranth = Amaranth({
   subsets: ['latin'],
@@ -567,7 +567,13 @@ function Editor() {
           </div>
         </div>
       </main>
-      <hr className="w-[90%] mx-5 md:mx-[80px] border-t border-white/80 m-10 border-purple-600" />
+      <div className="flex items-center my-8 w-full">
+        <div className="flex-grow h-px bg-gradient-to-r from-cyan-300 via-indigo-500 to-purple-600"></div>
+        <div className="flex-shrink-0 mx-4">
+          <div className="w-3 h-3 bg-indigo-500 rounded-full shadow-lg shadow-indigo-500/50 animate-pulse"></div>
+        </div>
+        <div className="flex-grow h-px bg-gradient-to-r from-purple-600 via-indigo-500 to-cyan-300"></div>
+      </div>
       <FooterSection />
     </div>
   );

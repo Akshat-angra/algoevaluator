@@ -1,0 +1,15 @@
+[
+  {
+    "userId": "user_12345",
+    "solvedProblems": [
+      "661bc4372a3053a589e1df34",
+      "661bc4382a3053a589e1df35",
+      "661bc4392a3053a589e1df36"
+    ],
+    "attempts": 5,
+    "streak": 3,
+    "lastStreak": "2025-04-13T10:15:00.000Z",
+    "lastWeekStreak": 2,
+    "updatedAt": "2025-04-14T08:30:00.000Z"
+  }
+]

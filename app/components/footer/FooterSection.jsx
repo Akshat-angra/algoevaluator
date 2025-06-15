@@ -1,12 +1,17 @@
-import React from "react";
+'use client';
+import React, { useState } from "react";
 import { FooterLinks } from "./FooterLinks";
 import { FooterNewsletter } from "./FooterNewletter";
 import { FooterSocial } from "./FooterSocial";
 import { Code2 } from "lucide-react";
 import Link from "next/link";
+import TermsOfServiceModal from "../TermsOfServiceModal";
+import PrivacyPolicyModal from "../privacy";
 
 export function FooterSection() {
     const currentYear = new Date().getFullYear();
+    const [showTermsModal, setShowTermsModal] = useState(false);
+    const [showPrivacy, setShowPrivacy] = useState(false);
 
     return (
         <footer className="bg-black text-gray-300">
@@ -44,16 +49,32 @@ export function FooterSection() {
                         <div className="flex space-x-6 text-sm">
                             <a
                                 href="#"
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    setShowPrivacy(true);
+                                }}
                                 className="text-gray-400 hover:text-white transition-colors duration-200"
                             >
                                 Privacy Policy
                             </a>
+                            <PrivacyPolicyModal
+                                isOpen={showPrivacy}
+                                onClose={() => setShowPrivacy(false)}
+                            />
                             <a
                                 href="#"
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    setShowTermsModal(true);
+                                }}
                                 className="text-gray-400 hover:text-white transition-colors duration-200"
                             >
                                 Terms of Service
                             </a>
+                            <TermsOfServiceModal
+                                isOpen={showTermsModal}
+                                onClose={() => setShowTermsModal(false)}
+                            />
                             <a
                                 href="https://akshatangra.vercel.app"
                                 target="_blank"

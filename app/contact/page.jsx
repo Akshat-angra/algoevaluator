@@ -69,8 +69,8 @@ function ContactPage() {
                                                     <a
                                                         href={item.href}
                                                         className={`block px-3 py-2 text-sm rounded-lg transition-all duration-200 ${activeSection === item.title
-                                                                ? "bg-purple-500/20 text-purple-300 border border-purple-500/20"
-                                                                : "text-gray-400 hover:text-white hover:bg-white/5"
+                                                            ? "bg-purple-500/20 text-purple-300 border border-purple-500/20"
+                                                            : "text-gray-400 hover:text-white hover:bg-white/5"
                                                             }`}
                                                         onClick={() => setActiveSection(item.title)}
                                                     >
@@ -223,7 +223,13 @@ function ContactPage() {
                     </div>
                 </div>
             </div>
-
+            <div className="flex items-center my-8 w-full">
+                <div className="flex-grow h-px bg-gradient-to-r from-cyan-300 via-indigo-500 to-purple-600"></div>
+                <div className="flex-shrink-0 mx-4">
+                    <div className="w-3 h-3 bg-indigo-500 rounded-full shadow-lg shadow-indigo-500/50 animate-pulse"></div>
+                </div>
+                <div className="flex-grow h-px bg-gradient-to-r from-purple-600 via-indigo-500 to-cyan-300"></div>
+            </div>
             <FooterSection />
         </div>
     )
